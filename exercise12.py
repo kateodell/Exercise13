@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import re
 
 class BinaryTreeNode(object):
     def __init__(self, value):
@@ -13,11 +14,13 @@ def consume(token_list):
     return token_list.pop(0)
 
 def isoperation(token):
-    for operator in '+-/*':
-        if operator == token:
-            return True
-    return False
-
+    # for operator in '+-/*':
+    #     if operator == token:
+    #         return True
+    # return False
+    return re.search(r"^[\+\-\*/]$",token)
+ 
+    
 def build_parse_tree(token_list):
     """Takes in a token list and produces a parse tree according to the rules in the README"""
     # REPLACE THIS WITH REAL CODE
